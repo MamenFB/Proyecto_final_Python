@@ -1,0 +1,54 @@
+{% extends "proyectowebapp/base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+<div class="container"><!--container el contenedor   -->
+
+    <div style="float:right;">
+       
+        {% if request.user.is_authenticated %}<!--si el usuario esta identificado-->
+
+            {% include "carro/widget.html"%} <!--con esta instruccion sale el carro-->
+        
+        {% else %}
+
+            <div class="alert alert-danger text-center">Inicia sesión para comprar</div> 
+
+        {% endif %}
+
+
+    </div>
+
+    <div class="row"><!--con el row pone  la foto-->
+
+
+
+{% for producto in productos %}
+
+        <div class="col-md-3"> <!--con el col se  hacen las colunmnas-->
+
+        <div class="card" style="width: 100%; margin: 5px 5px;"><!--creamos  tarjetas con width tamaño, margin margen y si,solo ponemos 1 los coje para los 4 lados, 
+                                                                    si ponemos 2 arriba abajo-->
+            <img src="{{producto.imagen.url}}" class="card-img-top">
+
+            <div class="card-body" style="text-align: center;"> <!--con esta etiqueta nos pone el nombre y precio en la foto-->
+                    <h7 class="card-tittle">{{producto.nombre}}</h7>
+                    <p class="card-text">{{producto.precio}}&nbsp;€</p>
+            </div>
+
+            <div class="card-footer text-center">    <!--con esta etiqueta nos pone el boton de añadir en la foto-->
+                <a href="{% url 'carro:agregar' producto.id%} " class="btn btn-success">Agregar al carro</a><!--nos llevara al id del producto con el 
+                    app_name="carro" que cree en la url de carro -->
+
+            </div>
+        </div> <!--card cierra las colunmnas-->
+
+
+    </div>
+
+{% endfor %} 
+    </div>
+</div>
+{%endblock%}

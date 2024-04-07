@@ -1,0 +1,64 @@
+<table class="table table-bordered" style="color: white;"> <!--tablas para el carrito-->
+    <thead>
+        <tr>
+            <th colspan="3" class="text-center">
+                Carro compra
+            </th>
+        </tr>
+
+        <tr>
+            <th> Producto </th>
+            <th> Cantidad </th>
+            <th> Suma </th>
+        </tr>
+
+    </thead>
+    <tbody> <!--que nos ponga carrito vacio o con productos añadidos-->
+        {% if request.session.carro.items %}
+            {% for key, value in request.session.carro.items%} <!-- por cada articulo que agreges al carro-->
+                <tr class="text-center">
+                    <td>{{value.nombre}}</td>
+                    <td>{{value.cantidad}}</td>
+                    <td>
+                        <a href="{% url 'carro:agregar' value.producto_id %}" class="btn btn-sm btn-success">+</a> <!-- class de bootstrap-->
+                        <a href="{% url 'carro:restar' value.producto_id %}" class="btn btn-sm btn-success">-</a><br/>
+                        {{value.precio}} €
+                    
+                    </td>
+                
+
+                </tr>
+
+            {% endfor%}
+
+            {%else %}
+            <tr>
+                <td colspan="3">
+                    <div class="alert alert-dange text-center"> <!-- con bootstrap, alerta de que el carro esta vacio-->
+                        Sin productos
+                    </div>
+                </td>
+            </tr>
+
+        {% endif %}
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="3">
+                Total: {{importe_total_carro}} €
+            </td>
+        </tr>
+
+        {% if request.session.carro.items%} <!-- este es el condicional para saber si la sesion esta abierta y tiene articulos en ele carro-->
+        
+            
+        <tr><td colspan="3" style="text-align: center;">
+
+                <a herf="../pedidos" class="btn btn-success"> Hacer pedido </a>
+
+                
+            </td></tr>
+        {% endif %}
+    </tfoot>
+
+</table>
