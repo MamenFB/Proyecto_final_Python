@@ -26,7 +26,12 @@ SECRET_KEY = 'django-insecure-ri6_4%hdu9+ma_q)*tmsmr(yi^1)y+$)vtgz)1@t+sep0+qxqh
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True #cuando el proyecto este terminado sera el momento de subirlo al servidor y el debug=false
 
-ALLOWED_HOSTS = ['proyecto-final-5-981j.onrender.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = [
+    '.onrender.com',  # Aceptar cualquier subdominio de onrender.com
+    'localhost',
+    '127.0.0.1'
+]
+
 
 
 
