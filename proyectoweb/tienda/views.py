@@ -1,8 +1,6 @@
 from django.shortcuts import render
 from .models import CategoriaProd, Producto
 
-# Create your views here.
-
 
 def tienda(request):
     
