@@ -4,6 +4,7 @@ Decidí lanzar una página web enfocada en productos informáticos, diseñada pa
 !
 ![alt text](image-1.png)
 ![alt text](image-2.png)
+![image](https://github.com/MamenFB/Proyecto_final/assets/106315129/fa0bb4c1-3b3c-4fa3-8155-3a641f563fe0)
 
 
 
@@ -54,8 +55,8 @@ Las contribuciones son bienvenidas. Si tienes alguna sugerencia para mejorar, po
 
 
 
-## 🔗 Deploy on Vercel 
+## 🔗 Deploy on Render 
 
 
-
+https://proyecto-final-7.onrender.com
 
